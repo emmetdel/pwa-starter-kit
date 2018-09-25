@@ -5,7 +5,7 @@ import {
   CLOSE_SNACKBAR,
   UPDATE_DRAWER_STATE
 } from "../actions/app";
-import { RootAction } from "../store.js";
+import { RootAction } from "../store";
 
 export interface AppState {
   page: string;
