@@ -4,7 +4,7 @@ import {
   OPEN_SNACKBAR,
   CLOSE_SNACKBAR,
   UPDATE_DRAWER_STATE
-} from "../actions/app.js";
+} from "../actions/app";
 import { RootAction } from "../store.js";
 
 export interface AppState {

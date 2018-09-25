@@ -12,7 +12,7 @@ import { installRouter } from "pwa-helpers/router.js";
 import { updateMetadata } from "pwa-helpers/metadata.js";
 
 // This element is connected to the Redux store.
-import { store, RootState } from "../store.js";
+import { store, RootState } from "../store";
 
 // These are the actions needed by this element.
 import {
@@ -20,7 +20,7 @@ import {
   updateOffline,
   updateDrawerState,
   updateLayout
-} from "../actions/app.js";
+} from "../actions/app";
 
 // The following line imports the type only - it will be removed by tsc so
 // another import for app-drawer.js is required below.
@@ -31,8 +31,8 @@ import "@polymer/app-layout/app-drawer/app-drawer.js";
 import "@polymer/app-layout/app-header/app-header.js";
 import "@polymer/app-layout/app-scroll-effects/effects/waterfall.js";
 import "@polymer/app-layout/app-toolbar/app-toolbar.js";
-import { menuIcon } from "./my-icons.js";
-import "./snack-bar.js";
+import { menuIcon } from "./my-icons";
+import "./snack-bar";
 
 class MyApp extends connect(store)(LitElement) {
   render() {
@@ -191,8 +191,6 @@ class MyApp extends connect(store)(LitElement) {
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
         <a ?selected="${_page === "view1"}" href="/view1">View One</a>
-        <a ?selected="${_page === "view2"}" href="/view2">View Two</a>
-        <a ?selected="${_page === "view3"}" href="/view3">View Three</a>
       </nav>
     </app-header>
 
@@ -204,22 +202,14 @@ class MyApp extends connect(store)(LitElement) {
           )}">
       <nav class="drawer-list">
         <a ?selected="${_page === "view1"}" href="/view1">View One</a>
-        <a ?selected="${_page === "view2"}" href="/view2">View Two</a>
-        <a ?selected="${_page === "view3"}" href="/view3">View Three</a>
       </nav>
     </app-drawer>
 
     <!-- Main content -->
     <main role="main" class="main-content">
       <my-view1 class="page" ?active="${_page === "view1"}"></my-view1>
-      <my-view2 class="page" ?active="${_page === "view2"}"></my-view2>
-      <my-view3 class="page" ?active="${_page === "view3"}"></my-view3>
       <my-view404 class="page" ?active="${_page === "view404"}"></my-view404>
     </main>
-
-    <footer>
-      <p>Made with &hearts; by the Polymer team.</p>
-    </footer>
 
     <snack-bar ?active="${_snackbarOpened}">
         You are now ${_offline ? "offline" : "online"}.</snack-bar>
@@ -243,8 +233,6 @@ class MyApp extends connect(store)(LitElement) {
 
   constructor() {
     super();
-    // To force all event listeners for gestures to be passive.
-    // See https://www.polymer-project.org/3.0/docs/devguide/settings#setting-passive-touch-gestures
     setPassiveTouchGestures(true);
   }
 
@@ -264,7 +252,6 @@ class MyApp extends connect(store)(LitElement) {
       updateMetadata({
         title: pageTitle,
         description: pageTitle
-        // This object also takes an image property, that points to an img src.
       });
     }
   }
