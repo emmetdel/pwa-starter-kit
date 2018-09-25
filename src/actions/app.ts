@@ -50,12 +50,6 @@ const loadPage: ActionCreator<ThunkResult> = (page: string) => dispatch => {
         // navigating to view1 after my-view1.js is loaded.
       });
       break;
-    // case "view2":
-    //   import("../components/my-view2.js");
-    //   break;
-    // case "view3":
-    //   import("../components/my-view3.js");
-    //   break;
     default:
       page = "view404";
       import("../components/my-view404");

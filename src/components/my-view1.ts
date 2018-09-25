@@ -9,7 +9,7 @@ class MyView1 extends PageViewElement {
     return html`
       ${SharedStyles}
       <section>
-        <h1>Emmet</h1>
+        <h1>View 1</h1>
       </section>
     `;
   }
