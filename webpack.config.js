@@ -81,7 +81,7 @@ const developmentConfig = merge([
   {
     devtool: 'cheap-module-source-map',
     plugins: [
-      new CopyWebpackPlugin(polyfills),
+      new CopyWebpackPlugin([...polyfills, { from: resolve('./service-worker.js'), to: OUTPUT_PATH }]),
       new HtmlWebpackPlugin({
         template: INDEX_TEMPLATE
       }),
